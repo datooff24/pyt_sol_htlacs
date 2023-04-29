@@ -15,9 +15,9 @@ The most trivial exercises are left out.
 Chapter 17 - PyGame is not included. 
 
 The following exercises are not included:
-Chapter 12 - Exercise 3
-Chapter 12 - Exercise 5
-Chapter 27 - Exercise 3
+Chapter 12 - Exercise 3,
+Chapter 12 - Exercise 5,
+Chapter 27 - Exercise 3,
 Chapter 27 - Exercise 4
 
 The following exercises are incomplete:
