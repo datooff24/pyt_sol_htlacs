@@ -15,7 +15,7 @@ def test(did_pass):
 
 def is_factor(f, n):
     """Determines if f divides n"""
-    if int(n) / f == int(n / f):
+    if n / f == int(n / f):
         return True
     else:
         return False
