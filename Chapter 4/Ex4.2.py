@@ -18,6 +18,7 @@ wn = turtle.Screen()
 wn.bgcolor("light green")
 alex = turtle.Turtle()
 alex.color("hot pink")
+alex.pensize(3)
 
 size = 20
 
