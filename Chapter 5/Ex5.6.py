@@ -1,7 +1,7 @@
 def grade(mark):
     if mark >= 75:
         final_grade = "First"
-    elif (mark >= 75) and (mark < 75):
+    elif (mark >= 70) and (mark < 75):
         final_grade = "Upper Second"
     elif (mark >= 60) and (mark < 70):
         final_grade = "Second"
