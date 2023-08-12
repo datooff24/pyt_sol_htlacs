@@ -9,6 +9,8 @@ def draw_star(t, sz):
 
 
 alex = turtle.Turtle()
+alex.pensize(3)
 wn = turtle.Screen()
 draw_star(alex, 100)
+alex.hideturtle()
 wn.mainloop()
