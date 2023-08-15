@@ -1,3 +1,6 @@
+# Partial solution to Ex10.3. 
+# This code only includes one traffic light, not the one from Ex10.2 which the exercise asks us to include as well
+
 import turtle           # Tess becomes a traffic light.
 
 turtle.setup(400,500)
