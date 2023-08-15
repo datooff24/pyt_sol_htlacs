@@ -1,4 +1,5 @@
 import turtle           # Tess becomes a traffic light.
+import time
 
 turtle.setup(400,500)
 wn = turtle.Screen()
@@ -40,6 +41,9 @@ tess.fillcolor("green")
 
 # This variable holds the current state of the machine
 state_num = 0
+
+# This ensures that the light stays green initially and does not immediately flicker to orange
+time.sleep(2)
 
 
 def advance_state_machine():
