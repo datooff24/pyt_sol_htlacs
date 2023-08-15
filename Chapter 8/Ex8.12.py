@@ -18,3 +18,14 @@ test(remove("an", "banana") == "bana")
 test(remove("cyc", "bicycle") == "bile")
 test(remove("iss", "Mississippi") == "Missippi")
 test(remove("eggs", "bicycle") == "bicycle")
+
+
+# -------- Alt solution ---------
+
+def remove(piece, word):
+    location = word.find(piece)
+    if location == -1:
+        return word
+    else:
+        new_word = word[:location] + word[location+len(piece):]
+        return new_word
