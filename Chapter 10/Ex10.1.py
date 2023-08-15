@@ -37,16 +37,18 @@ default_pensize = 1
 def larger():
     global default_pensize
     if default_pensize < 20:
-        tess.pensize(default_pensize+1)
+        default_pensize += 1
+        tess.pensize(default_pensize)
     else:
         tess.pensize(20)
 
 def smaller():
     global default_pensize
     if default_pensize > 1:
-        tess.pensize(default_pensize - 1)
+        default_pensize -= 1
+        tess.pensize(default_pensize)
     else:
-        tess.pensize(0)
+        tess.pensize(1)
 
 # 1, 2 or 3 changes the shape of tess into a default, turtle or circle respectively
 
