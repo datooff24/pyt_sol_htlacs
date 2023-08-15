@@ -1,7 +1,7 @@
 import string
 
 
-def remove_punct(text):
+def count_words_with_e(text):
     count = 0
     no_punct = ""
     for letter in text:
@@ -18,12 +18,40 @@ def remove_punct(text):
 
 Text = """Wikipedia is an encyclopedia that anyone can edit, and tens of millions already have Wikipedia's purpose is 
 to satisfy the curious minds by acting as a widely accessible and free encyclopedia that contains information on all 
-branches of knowledge. Hosted by the Wikimedia Foundation, Wikipedia consists of freely editable content, 
-whose articles also have numerous links to guide readers for more information. Written collaboratively by largely 
-anonymous volunteers, anyone with Internet access and in good standing can write and make changes to Wikipedia 
-articles (except in limited cases where editing is restricted to prevent disruption or vandalism). Since its creation 
-on January 15, 2001, Wikipedia has grown into the world's largest reference website, attracting over a billion 
-visitors monthly. It currently has more than sixty million articles in more than 300 languages, including 6,609,
-556 articles in English with 127,941 active contributors in the past month. """
+branches of knowledge."""
 
-remove_punct(Text)
+count_words_with_e(Text)
+
+
+
+# ------------ Alt solution -------------
+
+
+
+import string
+
+
+def count_words_with_e(text):
+    # Remove punctuation
+    filtered_text = ""
+    for letter in text:
+        if letter not in string.punctuation:
+            filtered_text += letter
+
+    # Break string into list of words
+    word_list = filtered_text.split()
+
+    # Count number of words with 'e'
+    count = 0
+    for word in word_list:
+        if 'e' in word:
+            count += 1
+
+    # Calculate percentage
+    tot_word_count = len(word_list)
+    count_ratio = count / tot_word_count
+    count_percentage = count_ratio*100
+
+    # Print output
+    output = 'Your text contains {0} words, of which {1} ({2:.2f}%) contain an "e".'
+    print(output.format(tot_word_count, count, count_percentage))
