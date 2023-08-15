@@ -24,6 +24,13 @@ test(scalar_mult(5, [1, 2]) == [5, 10])
 test(scalar_mult(3, [1, 0, -1]) == [3, 0, -3])
 test(scalar_mult(7, [3, 0, 5, 11, 2]) == [21, 0, 35, 77, 14])
 
+# Ex 11.6 Alternate solution (using that lists are mutable)
+# NOTE: changes original v instead of producing new list
+def scalar_mult(s, v):
+    for i in range(len(v)):
+        v[i] = s*v[i]
+    return v
+
 # Ex 11.7
 def dot_product(u, v):
     product = 0
