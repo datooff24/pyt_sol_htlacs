@@ -24,13 +24,11 @@ def count_letters(strng, letter, start=0):
     count = 0
     while start < len(strng):
         position = strng.find(letter, start)
-        print(position)
         if position == -1:
             return count
         else:
             count += 1
             start = position+1
-            print("start=", start)
     return count
 
 
