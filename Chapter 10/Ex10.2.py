@@ -59,7 +59,5 @@ def advance_state_machine():
         state_num = 0
     wn.ontimer(advance_state_machine, 2000)
 
-# Bind the event handler to the space key.
-
 advance_state_machine()
 wn.mainloop()
