@@ -5,7 +5,7 @@ def semi_copy(oldfile, newfile):
     
     # we cannot have more than 9999 lines
     if len(xs) > 9999:
-        return "File is too large"
+        return print("File is too large")
 
     # numbers each line and place them in a newfile
     outfile = open(newfile, "w")
