@@ -1,5 +1,5 @@
 def semi_copy(oldfile, newfile):
-    # Idea: out each file line into a list, create a new string that is line number + file line
+    # Idea: put each file line into a list, create a new string that is line number + file line
     infile = open(oldfile, "r")
     xs = infile.readlines()
     infile.close()
