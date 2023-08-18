@@ -6,19 +6,18 @@ my_tickets = [ [ 7, 17, 37, 19, 23, 43],
 [ 2, 5, 7, 11, 13, 17],
 [13, 17, 37, 19, 23, 43] ]
 
-# 14.5.a
 
+# 14.5.a
 def lotto_draw():
     """draw 6 random balls labeled 1 to 49"""
     rng = random.Random()
-    ball = 0
     ball_list = []
-    while ball < 6:  # draw 6
+    while len(ball_list) < 6:  # draw 6
         new_ball = rng.randrange(1, 50)
-        if new_ball not in ball_list:  # lotto balls don't contain duplicates
-            ball_list.append(new_ball)
-            ball += 1  # only consider a ball drawn if it is not a duplicate
+        if new_ball not in ball_list:    # lotto balls don't contain duplicates
+            ball_list.append(new_ball)    # only consider a ball drawn if it is not a duplicate
     return ball_list
+    
 
 # 14.5.b
 def lotto_match(draw, ticket):
@@ -27,13 +26,16 @@ def lotto_match(draw, ticket):
         if number in draw:
             correct +=1
     return correct
+    
 
 # 14.5.c
 def lotto_matches(draw, tickets):
     correct_list = []
     for ticket in tickets:
-        correct_list.append(lotto_match(ticket, draw))
+        correct = lotto_match(draw, ticket)
+        correct_list.append(correct)
     return correct_list
+    
 
 # 14.5.d
 # is_prime from Ex7.10
@@ -46,7 +48,7 @@ def is_prime(n):
         for i in range(2, n):
             if n % i == 0:
                 return False
-        return True
+    return True
 
 def primes_in(ticket):
     count = 0
@@ -54,6 +56,7 @@ def primes_in(ticket):
         if is_prime(num):
             count+= 1
     return count
+
 
 # 14.5.e
 
@@ -86,6 +89,7 @@ def prime_misses(tickets):
         if item not in merge_list_filter:
             missed_primes.append(item)
     return missed_primes
+    
 
 #14.5.f
 def compare_ticket_draw(tickets, amount):
@@ -96,10 +100,12 @@ def compare_ticket_draw(tickets, amount):
         draw = lotto_draw()
         # compare the draw to the tickets using lotto_matches()
         correct_list = lotto_matches(draw, tickets)
-        if amount in correct_list:
-            return counter
-        else:
-            counter += 1
+        for i in range(amount, len(tickets[0])+1):
+            if i in correct_list:
+                print(f"you got {i} correct in one of the tickets")
+                return counter
+            else:
+                counter += 1
 
 
 # now we run the experiment amount times:
@@ -108,9 +114,9 @@ def experiment_correct_num(amount, correct_numbers):
     counter = 0
     for i in range(amount):
         num = compare_ticket_draw(my_tickets, correct_numbers)
-        print("it took {0} tries to get {1} correct numbers in a ticket".format(num, correct_numbers))
+        print("it took {0} tries to get at least {1} correct numbers in a ticket\n".format(num, correct_numbers))
         counter += num
     average = counter / amount
     return average
 
-print("On average you need {0} tries to get {1} correct numbers in a ticket.".format(experiment_correct_num(20, 5), 5))
+print("On average you need {0} tries to get at least {1} correct numbers in a ticket.".format(experiment_correct_num(20, 4), 4))
