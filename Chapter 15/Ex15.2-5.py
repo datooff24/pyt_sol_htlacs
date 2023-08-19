@@ -26,11 +26,17 @@ class Point:
         return self.y / self.x
 
     # Ex 15.4
-    def get_line_to(self, secondpoint):
-        """computes the coefficients a, b in y = ax+b"""
-        a = (secondpoint.y - self.y) / (secondpoint.x - self.x)
-        b = self.y - a * self.x
-        return (a, b)
+    def get_line_to(self, p2):
+        """returns a,b in the formula y = ax + b"""
+        # y = ax+b, so a = dy/dx, b = y-ax
+        a = 0
+        if p2.x > self.x:
+            a = (p2.y - self.y) / (p2.x - self.x)
+        elif p2.x < self.x:
+            a = (self.y - p2.y) / (self.x - p2.x)
+        b = self.y - a*self.x
+        return a, b
+
 
 
 # Ex 15.5
