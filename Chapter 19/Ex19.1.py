@@ -12,3 +12,16 @@ def get_age():
         print("Good job")
 
 get_age()
+
+# ----------------------------Alt solution-----------------------------
+
+def get_age():
+    integer = input("Please enter a positive integer: ")
+    if integer == "":
+        raise ValueError("You literally entered nothing")
+    elif integer != str(int(integer)) or int(integer) <= 0:
+        raise ValueError(f"{integer} is not a positive integer")
+    print("Good job")
+
+
+get_age()
